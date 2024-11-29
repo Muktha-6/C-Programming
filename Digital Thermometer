@@ -1,0 +1,58 @@
+#include<stdio.h>
+float temp();
+int count=0;
+float sum=0,min,max;
+
+int main()
+{
+float res;
+res = temp();
+printf("\n The total temperature = %d \n",count);
+printf("\n The average = %f",res/count);
+
+
+return 0;
+}
+
+
+float temp()
+{
+float tempc,tempf;
+int a;
+count++;
+
+
+printf("\n Enter a temperature in celsius: \n");
+scanf("%f",&tempc);
+
+tempf = tempc*(9.0/5.0)+32.0;
+printf("\n Converted temp = %f\n",tempf);
+
+sum = sum+tempf;
+
+if(count>=2)
+{ if(tempf>max)
+    max = tempf;
+  if(tempf<min)
+  min =tempf;
+}
+
+else
+{
+ max = tempf;
+ min = tempf;
+}
+
+
+printf("\n To continue press 1 else 0 \n");
+scanf("%d",&a);
+
+if(a==1)
+ temp();
+
+else
+ {printf("\n Min Temp = %f",min);
+ printf("\n Max Temp = %f",max);
+ return sum;
+}
+}
