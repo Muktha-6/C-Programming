@@ -1,0 +1,62 @@
+#include <stdio.h>
+
+int main() {
+int j,i,larg,len_a,len_b,n,m;
+printf("\n Enter number of elements in array 1: \n");
+scanf("%d",&n);
+
+int a[n];
+printf("\n Enter the %d elements of array 1: \n",n);
+for(i=0;i<n;i++)
+{
+    scanf("%d",&a[i]);
+}
+
+printf("\n Enter number of elements of array 2: \n");
+scanf("%d",&m);
+
+int b[m];
+printf("\n Enter the %d elements: \n",m);
+for(i=0;i<m;i++)
+{
+    scanf("%d",&b[i]);
+}
+
+
+
+len_a = sizeof(a)/sizeof(a[0]);
+len_b = sizeof(b)/sizeof(b[0]);
+larg = a[0];
+for(i=1;i<len_a;i++)
+{
+    if(a[i]>larg)
+    larg = a[i];
+}
+for(i=0;i<len_b;i++)
+{
+    if(b[i]>larg)
+    larg = b[i];
+}
+int c[larg+1];
+for(i=0;i<larg+1;i++)
+{
+    c[i]=0;
+}    
+for(i=0;i<len_a;i++)
+{
+    for(j=0;j<len_b;j++)
+    {
+        if(a[i]==b[j])
+        {
+        c[a[i]]++; 
+        b[j] = -1;
+        }
+    }
+}
+for(i=0;i<larg+1;i++)
+{
+    if(c[i]!=0)
+    printf("%d ",i);
+}
+return 0;
+}
