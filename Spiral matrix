@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+int i,n,j;
+printf("\n Enter the dimension of square matrix :\n");
+scanf("%d",&n);
+int a[n][n];
+
+printf("\n Enter %d values :\n",n*n);
+for(i=0;i<n;i++)
+{
+for(j=0;j<n;j++)
+{
+scanf("%d",&a[i][j]);
+}
+}
+
+int left =0,right = n-1,top =0,bot =n-1;
+while(left<=right && top<=bot)
+{
+//left to right
+for(i=left;i<=right;i++)
+{
+    printf("%d\t",a[top][i]);
+    
+}
+top++;
+//top to bottom
+for(i=top;i<=bot;i++){
+    printf("%d\t",a[i][right]);
+}
+right--;
+
+//right to left
+for(i=right;i>=left;i--)
+{
+    printf("%d\t",a[bot][i]);
+}
+bot--;
+//bot to top;
+
+
+
+for(i=bot;i>=top;i--)
+{
+    printf("%d\t",a[i][left]);
+    
+}
+left++;
+}
+    return 0;
+}
+
+
